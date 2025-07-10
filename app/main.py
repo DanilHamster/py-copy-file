@@ -1,10 +1,13 @@
 def copy_file(command: str) -> None:
-    parts = command.split()
-    if len(parts) != 3 or parts[0] != "cp":
+    try:
+        cmd, firs_file, second_file = command.split()
+    except ValueError:
+        print("Value cmd must be 3")
         return
 
-    firs_file = parts[1]
-    second_file = parts[2]
+    if cmd != "cp":
+        print("CMD must start at cp")
+        return
 
     if firs_file == second_file:
         return
